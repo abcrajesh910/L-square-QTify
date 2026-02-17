@@ -2,4 +2,6 @@
   width: 67px; /* Figma spec */
   height: 34px; /* Figma spec */
   margin-left: 32px; /* Figma spec: Left alignment */
+  display: flex;
+  align-items: center;
 }
