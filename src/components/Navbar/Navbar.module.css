@@ -5,6 +5,6 @@
   display: flex;
   align-items: center; /* Vertically center logo, search, button */
   justify-content: space-between;
-  padding: 0; /* Left-right space for logo and button */
+  padding: 0 18px; /* Left-right space for logo and button */
   box-sizing: border-box;
 }
