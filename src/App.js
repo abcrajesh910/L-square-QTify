@@ -27,23 +27,27 @@ function App() {
   const [newAlbums, setNewAlbums] = useState([]);
   const [songs, setSongs] = useState([]);
 
-  useEffect(() => {
-    // Top Albums API call (Cypress iska wait kar raha hai)
-    axios.get("https://qtify-backend.labs.crio.do/albums/top")
-      .then(res => setTopAlbums(res.data))
-      .catch(err => console.error(err));
-    
-    // New Albums API call
-    axios.get("https://qtify-backend-labs.crio.do/albums/new")
-      .then(res => setNewAlbums(res.data))
-      .catch(err => console.error(err));
+ useEffect(() => {
+  const fetchAllData = async () => {
+    try {
+      const [topAlbumsRes, newAlbumsRes, songsRes] = await Promise.all([
+        axios.get("https://qtify-backend.labs.crio.do/albums/top"),
+        axios.get("https://qtify-backend.labs.crio.do/albums/new"),
+        axios.get("https://qtify-backend.labs.crio.do/songs")
+      ]);
 
-    // Songs API call
-    axios.get("https://qtify-backend-labs.crio.do/songs")
-      .then(res => setSongs(res.data))
-      .catch(err => console.error(err));
-  }, []);
+      setTopAlbums(topAlbumsRes.data);
+      setNewAlbums(newAlbumsRes.data);
+      setSongs(songsRes.data);
 
+
+    } catch (err) {
+      console.error("Error fetching data:", err);
+    }
+  };
+
+  fetchAllData();
+}, []);
   return (
     <div className="App">
       <Navbar />
