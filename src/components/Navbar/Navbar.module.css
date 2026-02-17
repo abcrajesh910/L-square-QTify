@@ -6,4 +6,5 @@
   align-items: center; /* Vertically center logo, search, button */
   justify-content: space-between;
   box-sizing: border-box;
+  padding: 0 20px; /* Horizontal padding */
 }

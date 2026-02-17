@@ -1,6 +1,9 @@
 .logo {
-  width: 67px; /* Figma spec */
-  height: 34px; /* Figma spec */
+  
   display: flex;
   align-items: center;
+  top: 20px;
+  left: 32px;
+  width: 67px; /* Figma spec */
+  height: 34px; /* Figma spec */
 }
