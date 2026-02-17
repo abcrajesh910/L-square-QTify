@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 159px; /* Figma standard for cards */
+}
+
+.card {
+  width: 159px;
+  height: 205px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.banner {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+  background-color: #ffffff;
+}
+
+.chip {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 10px !important;
+  height: 23px !important;
+}
+
+.titleWrapper {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
