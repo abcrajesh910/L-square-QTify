@@ -1,8 +1,10 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 32px;
+  width: 100%;
   height: 74px;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Green color */
+  display: flex;
+  align-items: center; /* Vertically center logo, search, button */
+  justify-content: space-between;
+  padding: 0 32px; /* Left-right space for logo and button */
+  box-sizing: border-box;
 }
