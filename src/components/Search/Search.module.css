@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  width: 568px;
+  height: 48px;
+  border: 1px solid var(--color-black);
+  border-radius: 8px 0px 0px 8px; /* Left side curve */
+  padding: 0 15px;
+}
+
+.searchButton {
+  width: 66px; /* Placeholder width for the button part */
+  height: 48px;
+  border: 1px solid var(--color-black);
+  border-left: none;
+  border-radius: 0px 8px 8px 0px; /* Right side curve matches Figma */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}
