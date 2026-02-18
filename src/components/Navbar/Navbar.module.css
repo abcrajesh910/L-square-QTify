@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   height: 74px;
-  background-color: #34c94b; /* Green */
-  padding: 0 18px !important; /* Cypress range fix */
+  background-color: #34c94b; 
+  padding: 0 17px !important; 
   box-sizing: border-box;
 }

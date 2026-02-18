@@ -1,7 +1,5 @@
 .sectionWrapper {
   margin: 32px;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
 }
 
 .header {
@@ -9,28 +7,48 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .header h3 {
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
+  font-size: 20px;
+  color: Black;
 }
 
 .toggleText {
-  color: #34c94b; /* Green color from Figma */
+  color: #34c94b !important;
   cursor: pointer;
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
+  font-size: 20px;
 }
 
-.cardsWrapper {
+.contentWrapper {
+  min-height: 250px; /* Minimum height ensures data is visible */
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  align-items: center;
 }
 
-.wrapper {
+.swiperWrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Slide width fix for Swiper slides */
+.swiperSlide {
+  width: 159px !important; /* Exact width as per card spec */
+}
+
+.gridWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
   gap: 40px;
+}
+
+/* Customizing Swiper Navigation Arrows */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: #34c94b;
 }

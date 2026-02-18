@@ -1,7 +1,7 @@
 .logo {
   width: 67px;
   height: 34px;
-  margin-left: 0 !important; /* Extra margin hatao */
+  margin-left: 0 !important; 
   display: flex;
   align-items: center;
 }
