@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 74px;
   background-color: #34c94b; 
-  padding: 0 17px !important; 
-  box-sizing: border-box;
+  padding: 0 32px !important; 
+  /* box-sizing: border-box; */
+  width: 100vw;
 }
