@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Card from "../Card/Card";
 import styles from "./Section.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,13 +7,13 @@ import { Tabs, Tab, Box } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
 
-function Section({ title, data, type, filterSource }) {
+function Section({ title, data, type }) {
   const [carouselToggle, setCarouselToggle] = useState(true);
   const [selectedTab, setSelectedTab] = useState(0);
   const [filteredData, setFilteredData] = useState(data);
 
-  // Filter Logic: Snap ke tabs ke hisaab se
-  const genres = ["All", "Rock", "Pop", "Jazz", "Blues"];
+  // Genres ko ek constant ki tarah use karein
+  const genres = useMemo(() => ["All", "Rock", "Pop", "Jazz", "Blues"], []);
 
   useEffect(() => {
     if (type === "song") {
@@ -27,7 +27,7 @@ function Section({ title, data, type, filterSource }) {
     } else {
       setFilteredData(data);
     }
-  }, [selectedTab, data]);
+  }, [selectedTab, data, type, genres]); // Saari dependencies add kar di hain
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -44,17 +44,19 @@ function Section({ title, data, type, filterSource }) {
         )}
       </div>
 
-      {/* Tabs implementation for Songs */}
       {type === "song" && (
-        <Box sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: '20px' }}>
+        <Box sx={{ marginBottom: '20px' }}>
           <Tabs 
             value={selectedTab} 
             onChange={handleChange} 
-            className={styles.tabs}
             TabIndicatorProps={{ style: { backgroundColor: "#34c94b" } }}
           >
             {genres.map((genre) => (
-              <Tab label={genre} key={genre} className={styles.tab} />
+              <Tab 
+                label={genre} 
+                key={genre} 
+                sx={{ color: 'white', '&.Mui-selected': { color: '#34c94b' } }} 
+              />
             ))}
           </Tabs>
         </Box>
@@ -62,18 +64,20 @@ function Section({ title, data, type, filterSource }) {
       
       <div className={styles.contentWrapper}>
         {carouselToggle ? (
-          <Swiper
-            modules={[Navigation]}
-            slidesPerView={"auto"}
-            spaceBetween={40}
-            navigation
-          >
-            {filteredData.map((item) => (
-              <SwiperSlide key={item.id} className={styles.swiperSlide}>
-                <Card data={item} type={type} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className={styles.swiperWrapper}>
+            <Swiper
+              modules={[Navigation]}
+              slidesPerView={"auto"}
+              spaceBetween={40}
+              navigation={true}
+            >
+              {filteredData.map((item) => (
+                <SwiperSlide key={item.id} className={styles.swiperSlide}>
+                  <Card data={item} type={type} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         ) : (
           <div className={styles.gridWrapper}>
             {filteredData.map((item) => (
